@@ -10,7 +10,7 @@ Algorithms used:
 1)Random Forest
 2)Extra Trees Regressor
 
-The regression evaluation metrics RMSE (Root Mean Squared Error) and R2 Score (Coefficient of Determination) were utilized because the target variable is a continuous variable.
+The regression evaluation metrics RMSE (Root Mean Squared Error) and R2 Score (Coefficient of Determination) were utilized because the target variable(Price) is a continuous variable.
 
 ## Acknowledgements
 Credited to Kaggle for availability of the data. You can find the License for the data and other descriptive information in the Kaggle available here:
