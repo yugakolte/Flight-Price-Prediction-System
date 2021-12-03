@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Prediction</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="row" align = "center" >
+      <div class="col" align = "center" >
+        <br><br><br>
+        <h3>Flight Price Prediction System</h3>
+
+        <form autocomplete = "off" action="{{ url_for('load_data')}}" method="GET" >
+
+          <div class="form-group">
+
+            <label for "input">Load Sample Data</label>
+            <br>
+            <button type="submit" class="btn btn-primary">Load Data</button>
+            <br>
+
+        </form>
+        <br>
+        <h6>Size of test data (rows, features): {{ data_size }}</h6>
+        <h6>Sample Contents of the Test File</h6>
+        {% for table in tables %}
+          <h1> {{titles[loop.index]}} </h1>
+          {{ table | safe }}
+        {% endfor %}
+        <br>
+        <form autocomplete = "off" action="{{ url_for('predict')}}" method="POST" >
+          
+          <button type="submit" class="btn btn-primary">Prediction</button>
+          <br>
+
+        </form>
+        <br>
+        <h6>Predict Prices in Dollars ($)</h6>
+        <h6>{{ result }}</h6>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
